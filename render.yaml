@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: broker-instagram
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: PUBLISH_MODE
+        value: approval
+      - key: IG_API_VERSION
+        value: v25.0
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash-lite
+      - key: ADMIN_ID
+        value: "160513400"
+      - key: MONGODB_URI
+        sync: false
+      - key: BALE_TOKEN_SALE
+        sync: false
+      - key: BALE_TOKEN_RENT
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: IG_APP_ID
+        sync: false
+      - key: IG_APP_SECRET
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: IG_REDIRECT_URI
+        sync: false
+      - key: TOKEN_ENC_KEY
+        sync: false
+      - key: OAUTH_ADMIN_SECRET
+        sync: false
+      - key: IG_WEBHOOK_VERIFY_TOKEN
+        sync: false
